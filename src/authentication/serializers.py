@@ -32,7 +32,6 @@ class UserSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         """Create user object with validated data."""
-        #user = User.objects.create_user(**validated_data)
-        #return user
-        pass
+        user = User.objects.create_user(**validated_data)
+        return user
 
