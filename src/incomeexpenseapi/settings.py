@@ -1,5 +1,6 @@
 """Django settings for incomeexpenseapi project"""
 
+import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -92,4 +93,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Custom model used for user authentication
 AUTH_USER_MODEL = 'authentication.User'
+
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_PORT = '2525'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = 'Income Expense API <noreply@incomeexpenseapi.com>'
 
